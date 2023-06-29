@@ -6,8 +6,8 @@ import pandas as pd
 
 
 # import the model
-pipe = pickle.load(open('pipe.pkl','rb'))
-df = pickle.load(open('df.pkl','rb'))
+pipe = pd.read_pickle('pipe.pkl')
+df = pd.read_pickle('df.pkl')
 
 st.image("image.jpg")
 st.title("Laptop Price Prediction :chart_with_upwards_trend:")
