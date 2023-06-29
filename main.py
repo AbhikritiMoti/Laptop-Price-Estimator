@@ -2,19 +2,29 @@ import streamlit as st
 import pickle
 import numpy as np
 import pandas as pd
-
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 # import the model
+# pipe = pickle.load(open('pipe.pkl','rb'))
+# df = pickle.load(open('df.pkl','rb'))
 pipe = pd.read_pickle('pipe.pkl')
 df = pd.read_pickle('df.pkl')
+
+
+# st.sidebar.subheader("Correlation b/w Laptop configurations")
+# hm = pd.read_csv('clean.csv')
+# fig = plt.figure(figsize=(5, 3)) #facecolor= "#262730"
+# sns.heatmap(hm.corr())
+# sns.set_style("white")
+# st.sidebar.pyplot(fig)
 
 st.image("image.jpg")
 st.title("Laptop Price Prediction :chart_with_upwards_trend:")
 st.markdown("""### 
 #### This model predicts laptop price according to the user input configuration """)
-
-
+#
 
 st.sidebar.title("Source Code")
 st.sidebar.image("git.png")
