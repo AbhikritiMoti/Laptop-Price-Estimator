@@ -1,2 +1,3 @@
 include pipe.pkl
 include df.pkl
+pandas
