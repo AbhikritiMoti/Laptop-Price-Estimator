@@ -1,5 +1,6 @@
-include pipe.pkl
-include df.pkl
+
 pandas
 streamlit
 sklearn
+include pipe.pkl
+include df.pkl
