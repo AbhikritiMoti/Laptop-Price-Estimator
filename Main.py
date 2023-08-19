@@ -1,14 +1,10 @@
 import streamlit as st
-# import pickle
 import numpy as np
 import pandas as pd
-# import matplotlib.pyplot as plt
-# import seaborn as sns
 import plotly.express as px
 
 pipe = pd.read_pickle('pipe.pkl')
 df = pd.read_pickle('df.pkl')
-
 
 def main_page():
     st.text("© 2023 My App. All rights reserved.")
@@ -18,10 +14,10 @@ def DataPlayground():
 
 def DataVisualization():
     st.markdown("hi")
-    
-
 
 st. set_page_config(layout="wide")
+
+
 # Load data
 hm = pd.read_csv('clean.csv')
 numerical_columns = hm.select_dtypes(include=[np.number])
@@ -75,7 +71,7 @@ ssd = st.selectbox('SSD(in GB)',[0,8,128,256,512,1024])
 gpu = st.selectbox('GPU',df['Gpu brand'].unique())
 
 os = st.selectbox('OS',df['os'].unique())
-
+query = None
 if st.button('Predict Price'):
     # query
     ppi = None
@@ -103,5 +99,22 @@ if st.button('Predict Price'):
     boxed_text = f'<div style="border: 0.5px solid #b23434;border-radius: 10px; padding: 10px;font-weight: bold; font-size: 50px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;₹ {prediction}</div>'
 
     st.markdown(boxed_text, unsafe_allow_html=True)
+
+    query_df = pd.DataFrame(data=query,
+                            columns=['Company', 'Type', 'RAM', 'Weight', 'Touchscreen', 'IPS', 'PPI', 'CPU', 'HDD',
+                                     'SSD', 'GPU', 'OS'])
+
+    # Add the prediction value to the DataFrame
+    query_df['Predicted Price'] = prediction
+
+    # Add a download button to download the DataFrame as a CSV file
+    csv = query_df.to_csv(index=False)
+    st.markdown("<br><br>",unsafe_allow_html=True)
+    st.download_button(
+        label="Download Predicted Values",
+        data=csv.encode(),
+        file_name='predicted_values.csv',
+        mime='text/csv'
+    )
 
 
