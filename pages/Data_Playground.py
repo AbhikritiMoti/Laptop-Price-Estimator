@@ -16,7 +16,7 @@ st.sidebar.markdown("""### <br>
 
 st.markdown("---")
 
-st. set_page_config(layout="wide")
+# st. set_page_config(layout="wide")
 
 # Interactive Widgets
 st.markdown("## Filtered Data Using Interactive Widgets")

@@ -9,7 +9,7 @@ st.sidebar.write("[Click here](https://github.com/abhikritimoti/-Laptop_Price_Pr
 st.sidebar.markdown("""### <br>
 ## :copyright: Abhikriti Moti <br> Email: <a href="abhikriti.12007073@lpu.in">abhikriti.12007073@lpu.in </a>""", unsafe_allow_html=True)
 
-st. set_page_config(layout="wide")
+# st. set_page_config(layout="wide")
 
 st.header("Analysis")
 path_to_html = "LaptopPricePrediction.html"
