@@ -1,6 +1,4 @@
-
-pandas
-streamlit
-sklearn
-include pipe.pkl
-include df.pkl
+numpy==1.21.6
+pandas==1.2.4
+plotly==5.15.0
+streamlit==1.23.1
